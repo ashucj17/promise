@@ -49,3 +49,27 @@ new Promise((resolve, reject) => {
   .finally(() =>
     console.log("Either error resolved or it still under process")
   );
+
+// Handling Promise with async awit and catch
+
+let myNewPromise = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    console.log("working with Async task using awaits methods");
+    let error = true;
+    if (!error) {
+      resolve({ username: "ashish", userId: "alphaONE" });
+    } else {
+      reject("working on error with awaits");
+    }
+  }, 6000);
+});
+
+async function myAsync() {
+  try {
+    const response = await myNewPromise;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+myAsync();
